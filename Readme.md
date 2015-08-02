@@ -19,7 +19,7 @@ Output with issues
 	SymKey21 = FD-C3-24-27-4C-4C-56-01-62-1E-B2-AE-B1-F6-68-64-61-72-EB-2E-6D-F4-30-21-F1-8A-73-C6-85-38-25-FA
 	------------------------------
 
-SymKey12 should be identical to SymKey21. The new generated certificates DO have matching keys so something wrong with the old certificates?
+***SymKey12 should be identical to SymKey21. The new generated certificates DO have matching keys so something wrong with the old certificates?***
 
 Entire output
 -------------
