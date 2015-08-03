@@ -19,6 +19,7 @@ For those not having access to Visual Studio, here is the output (the certificat
 Windows 10 output (version NT 10.0.10240.0)
 -------------------------------------------
 
+	'Test ECC Alice secp521r1 SS' <=> 'Test ECC Bob secp521r1 SS'
 	> FAILURE < ECDH Keys are different!
 	SymKey12 = 22-46-6B-15-0F-9B-65-B0-D6-7D-AA-0E-C5-8A-7F-F3-18-1F-5F-62-88-26-90-67-DC-99-1B-98-73-3B-58-FF
 	SymKey21 = FD-C3-24-27-4C-4C-56-01-62-1E-B2-AE-B1-F6-68-64-61-72-EB-2E-6D-F4-30-21-F1-8A-73-C6-85-38-25-FA
