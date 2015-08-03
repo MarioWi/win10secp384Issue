@@ -16,14 +16,14 @@ namespace Win10secp384
     {
         static void Main(string[] args)
         {
-            TestCase("Alice secp256 test cert", "Bob secp256 test cert");
-            TestCase("Alice secp384 test cert", "Bob secp384 test cert");
-            TestCase("Alice secp521 test cert", "Bob secp521 test cert");
-
-            TestCase("Test ECC Alice secp256r1 SS", "Test ECC Bob secp256r1 SS");
-            TestCase("Test ECC Alice secp384r1 SS", "Test ECC Bob secp384r1 SS");
             TestCase("Test ECC Alice secp521r1 SS", "Test ECC Bob secp521r1 SS");
+            TestCase("Test ECC Alice secp384r1 SS", "Test ECC Bob secp384r1 SS");
+            TestCase("Test ECC Alice secp256r1 SS", "Test ECC Bob secp256r1 SS");
 
+            TestCase("Alice secp521 test cert", "Bob secp521 test cert");
+            TestCase("Alice secp384 test cert", "Bob secp384 test cert");
+            TestCase("Alice secp256 test cert", "Bob secp256 test cert");
+            
             Console.WriteLine("Press any key to exit ...");
             Console.ReadLine();
         }
@@ -46,9 +46,20 @@ namespace Win10secp384
             var symKey12 = Generate256BitKey(party1Key, party2Cert);
             var symKey21 = Generate256BitKey(party2Key, party1Cert);
 
-            Console.WriteLine("Case {0}-{1}", party1Cn, party2Cn);
-            Console.WriteLine("SymKey12 = {0}", BitConverter.ToString(symKey12));
-            Console.WriteLine("SymKey21 = {0}", BitConverter.ToString(symKey21));
+            var match = symKey12.SequenceEqual(symKey21);
+
+            Console.WriteLine("\'{0}\' <=> \'{1}\'", party1Cn, party2Cn);
+            if (!match)
+            {
+                Console.WriteLine("> FAILURE < ECDH Keys are different!", BitConverter.ToString(symKey12));
+                Console.WriteLine("SymKey12 = {0}", BitConverter.ToString(symKey12));
+                Console.WriteLine("SymKey21 = {0}", BitConverter.ToString(symKey21));
+            }
+            else
+            {
+                Console.WriteLine("Success, ECDH Keys agree", BitConverter.ToString(symKey12));
+            }
+            
             Console.WriteLine(new string('-', 30));
         }
 
