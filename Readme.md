@@ -1,16 +1,12 @@
-This code is to support the question at http://security.stackexchange.com/questions/95631/is-sec-p-384-and-p-521-broken-in-windows-10
-
-Core Issue
-==========
-As seen in the Windows 10 program output, several ECDH secp384 and ECDH secp521 scenarios that passed on Windows 8.1 now fail on Windows 10 for no obvious reasons.
+This code demonstrates that several ECDH secp384 and ECDH secp521 scenarios that passed on Windows 8.1 now fail on Windows 10 for no obvious reasons. See the Windows 10 program output below for details.
 
 Prerequisite
 ------------
-You need to run `\Certs\InstallTestCerts.bat` to install the certificates. `RemoveTestCerts.bat` cleans them up. You don't need to create the PFX file but if you want, `RemoveTestCerts.bat` will do so; `git revert` to get the original .pfx files again.
+You need to run `\Certs\InstallTestCerts.bat` to install the certificates. `RemoveTestCerts.bat` cleans them up. You don't need to create the PFX file but if you want, `CreateTestCerts.bat` will do so; `git revert` to get the original .pfx files again.
 
 Running the sample code snippet
 -------------------------------
-After doing the above, open the solution in visual studio and hit Run. For those without visual studio, the `/bin/debug/` folder has also been pushed into git.
+After doing the above, open the solution in visual studio and hit Run. For those without Visual Studio, the `/bin/debug/` folder has also been pushed into git.
 
 Program results
 ===============
@@ -67,4 +63,9 @@ Windows 8 output (version NT 6.3.9600.0)
 	Success, ECDH Keys agree
 	------------------------------
 	Press any key to exit ...	
+
+
+Other info
+----------
+This code also supports the question at http://security.stackexchange.com/questions/95631/is-sec-p-384-and-p-521-broken-in-windows-10
 	
